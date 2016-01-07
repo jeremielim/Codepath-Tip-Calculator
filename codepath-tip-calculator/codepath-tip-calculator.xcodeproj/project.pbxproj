@@ -482,6 +482,7 @@
 				D043C51B1C3CA84E00BA7CA5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D043C51C1C3CA84E00BA7CA5 /* Build configuration list for PBXNativeTarget "codepath-tip-calculatorTests" */ = {
 			isa = XCConfigurationList;
@@ -490,6 +491,7 @@
 				D043C51E1C3CA84E00BA7CA5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D043C51F1C3CA84E00BA7CA5 /* Build configuration list for PBXNativeTarget "codepath-tip-calculatorUITests" */ = {
 			isa = XCConfigurationList;
@@ -498,6 +500,7 @@
 				D043C5211C3CA84E00BA7CA5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
