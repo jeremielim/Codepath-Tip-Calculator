@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var tipLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var tipControl: UISegmentedControl!
+    @IBOutlet weak var percentLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,12 +49,15 @@ class ViewController: UIViewController {
     // Calculate Tip
     @IBAction func onEditingChanged(sender: AnyObject) {
         
+        // Get percentage amount
+        var tipPercentages = [0.18,0.2,0.22]
+        let tipPercentage = tipPercentages[tipControl.selectedSegmentIndex]
+        
+        percentLabel.text = tipControl.titleForSegmentAtIndex(tipControl.selectedSegmentIndex)
+        
+        
         // Check if bill total field is not empty
         if billField.text != "" {
-    
-            // Get percentage amount
-            var tipPercentages = [0.18,0.2,0.22]
-            let tipPercentage = tipPercentages[tipControl.selectedSegmentIndex]
             
             let billAmount = Double(billField.text!)
             let tip = billAmount! * tipPercentage
