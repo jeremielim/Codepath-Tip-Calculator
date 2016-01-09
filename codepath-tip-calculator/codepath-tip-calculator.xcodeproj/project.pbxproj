@@ -14,6 +14,7 @@
 		D043C4FF1C3CA84E00BA7CA5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D043C4FD1C3CA84E00BA7CA5 /* LaunchScreen.storyboard */; };
 		D043C50A1C3CA84E00BA7CA5 /* codepath_tip_calculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D043C5091C3CA84E00BA7CA5 /* codepath_tip_calculatorTests.swift */; };
 		D043C5151C3CA84E00BA7CA5 /* codepath_tip_calculatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D043C5141C3CA84E00BA7CA5 /* codepath_tip_calculatorUITests.swift */; };
+		D048BFA21C41BCC600D49687 /* Roboto regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D048BFA11C41BCC600D49687 /* Roboto regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		D043C5101C3CA84E00BA7CA5 /* codepath-tip-calculatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "codepath-tip-calculatorUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D043C5141C3CA84E00BA7CA5 /* codepath_tip_calculatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = codepath_tip_calculatorUITests.swift; sourceTree = "<group>"; };
 		D043C5161C3CA84E00BA7CA5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D048BFA11C41BCC600D49687 /* Roboto regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto regular.ttf"; path = "../../../../Desktop/Roboto/Roboto regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				D043C4FB1C3CA84E00BA7CA5 /* Assets.xcassets */,
 				D043C4FD1C3CA84E00BA7CA5 /* LaunchScreen.storyboard */,
 				D043C5001C3CA84E00BA7CA5 /* Info.plist */,
+				D048BFA31C41BCD500D49687 /* Fonts */,
 			);
 			path = "codepath-tip-calculator";
 			sourceTree = "<group>";
@@ -123,6 +126,14 @@
 				D043C5161C3CA84E00BA7CA5 /* Info.plist */,
 			);
 			path = "codepath-tip-calculatorUITests";
+			sourceTree = "<group>";
+		};
+		D048BFA31C41BCD500D49687 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				D048BFA11C41BCC600D49687 /* Roboto regular.ttf */,
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,6 +241,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D043C4FF1C3CA84E00BA7CA5 /* LaunchScreen.storyboard in Resources */,
+				D048BFA21C41BCC600D49687 /* Roboto regular.ttf in Resources */,
 				D043C4FC1C3CA84E00BA7CA5 /* Assets.xcassets in Resources */,
 				D043C4FA1C3CA84D00BA7CA5 /* Main.storyboard in Resources */,
 			);
