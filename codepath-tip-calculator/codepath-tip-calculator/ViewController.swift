@@ -15,16 +15,42 @@ class ViewController: UIViewController {
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var tipControl: UISegmentedControl!
     @IBOutlet weak var percentLabel: UILabel!
+    @IBOutlet weak var amountsView: UIView!
+    @IBOutlet weak var percentView: UIView!
+    
+    @IBAction func percentButton(sender: AnyObject) {
+        
+        view.endEditing(true)
+        
+        UIView.animateWithDuration(0.3, animations: {
+            self.percentView.frame = CGRectMake(0, 0, self.percentView.frame.size.height, self.percentView.frame.size.height)
+        })
+    }
+    
+    func initTipLabels() {
+        tipLabel.text = "$0.00"
+        totalLabel.text = "$0.00"
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
-        tipLabel.text = "$0.00"
-        totalLabel.text = "$0.00"
+        // Position Bill Field at the center
+        let xBillFieldPos = billField.frame.origin.x
+        let billFieldHeight = billField.frame.size.height
+        let billFieldWidth = billField.frame.size.width
         
-        // Autofocus keyboard on load
+        billField.frame = CGRectMake(xBillFieldPos, 212, billFieldWidth, billFieldHeight)
+        
+        initTipLabels()
+        
+        // Autofocus Keyboard on Load
         self.billField.becomeFirstResponder()
+        
+        // Hide amounts view
+        self.amountsView.alpha = 0
+        
+    
     }
 
     override func didReceiveMemoryWarning() {
@@ -48,6 +74,13 @@ class ViewController: UIViewController {
     
     // Calculate Tip
     @IBAction func onEditingChanged(sender: AnyObject) {
+        let bounds = UIScreen.mainScreen().bounds
+        let boundsHeight = bounds.size.height
+        
+        // Position Bill Field at the center
+        let xBillFieldPos = billField.frame.origin.x
+        let billFieldHeight = billField.frame.size.height
+        let billFieldWidth = billField.frame.size.width
         
         // Get percentage amount
         var tipPercentages = [0.18,0.2,0.22]
@@ -58,6 +91,17 @@ class ViewController: UIViewController {
         
         // Check if bill total field is not empty
         if billField.text != "" {
+            self.billField.becomeFirstResponder()
+            
+            // Animate Tip Total Fields
+            UIView.animateWithDuration(0.3, animations: {
+                self.amountsView.alpha = 1
+                
+                self.billField.frame = CGRectMake(xBillFieldPos, CGFloat(130), billFieldWidth, billFieldHeight)
+                
+                self.percentView.frame = CGRectMake(0, boundsHeight, self.percentView.frame.size.height, self.percentView.frame.size.height)
+            })
+            
             
             let billAmount = Double(billField.text!)
             let tip = billAmount! * tipPercentage
@@ -66,9 +110,14 @@ class ViewController: UIViewController {
             tipLabel.text = String(format: "$%.2f", tip)
             totalLabel.text = String(format: "$%.2f", total)
         } else {
-            // Reset tip and total labels
-            tipLabel.text = "$0.00"
-            totalLabel.text = "$0.00"
+            
+            UIView.animateWithDuration(0.4, animations: {
+                self.amountsView.alpha = 0
+                
+                self.billField.frame = CGRectMake(xBillFieldPos, CGFloat(212), billFieldWidth, billFieldHeight)
+            })
+            
+            initTipLabels()
         }
     }
     
