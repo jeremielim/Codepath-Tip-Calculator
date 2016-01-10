@@ -50,7 +50,7 @@ class ViewController: UIViewController {
         // Hide amounts view
         self.amountsView.alpha = 0
         
-    
+        tipControl.frame = CGRectMake(45, 300, 325, 100)
     }
 
     override func didReceiveMemoryWarning() {
