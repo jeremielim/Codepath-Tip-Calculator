@@ -1,5 +1,6 @@
 # Tableau
-A simple app to calculate how much you need to tip. This is some prework for the Codepath bootcamp application.
+A simple app to calculate how your tip. 
+This is prework for the Codepath bootcamp application. Good luck to me!
 
 ![Tableau Tip Calculator](https://raw.githubusercontent.com/jeremiespoken/Codepath-Tip-Calculator/master/screencap.gif)
 
