@@ -40,7 +40,7 @@ class ViewController: UIViewController {
         let billFieldHeight = billField.frame.size.height
         let billFieldWidth = billField.frame.size.width
         
-        billField.frame = CGRectMake(xBillFieldPos, 212, billFieldWidth, billFieldHeight)
+        billField.frame = CGRectMake(xBillFieldPos, 230, billFieldWidth, billFieldHeight)
         
         initTipLabels()
         
