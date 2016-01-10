@@ -24,8 +24,6 @@ class ViewController: UIViewController {
         totalLabel.text = "$0.00"
     }
     
-    
-    
     // Show Percent Controls
     @IBAction func percentButton(sender: AnyObject) {
         // Hide Keyboard
@@ -40,13 +38,17 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Get Width and Height of Main screen
+        let bounds = UIScreen.mainScreen().bounds
+        let boundsHeight = bounds.size.height
+        
         // Position Bill Field at the center
         let xBillFieldPos = billField.frame.origin.x
         let billFieldHeight = billField.frame.size.height
         let billFieldWidth = billField.frame.size.width
         
         // Center Bill Field
-        billField.frame = CGRectMake(xBillFieldPos, 230, billFieldWidth, billFieldHeight)
+        billField.frame = CGRectMake(xBillFieldPos, (boundsHeight / 3) - billField.frame.height, billFieldWidth, billFieldHeight)
         
         // Autofocus Keyboard on Load
         self.billField.becomeFirstResponder()
