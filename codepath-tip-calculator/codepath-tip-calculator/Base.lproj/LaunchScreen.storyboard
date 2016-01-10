@@ -17,11 +17,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Launch Image Logo" translatesAutoresizingMaskIntoConstraints="NO" id="GIO-Ru-Qhg">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Launch Image Logo" translatesAutoresizingMaskIntoConstraints="NO" id="GIO-Ru-Qhg">
                                 <rect key="frame" x="162" y="323" width="90" height="90"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="YXj-qw-IML"/>
+                                    <constraint firstAttribute="width" constant="90" id="rr0-1Y-xii"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.18602201342582703" green="0.30385792255401611" blue="0.99248617887496948" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="GIO-Ru-Qhg" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="h5D-s3-6FL"/>
+                            <constraint firstItem="GIO-Ru-Qhg" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="vwd-0U-abn"/>
+                        </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="414" height="736"/>

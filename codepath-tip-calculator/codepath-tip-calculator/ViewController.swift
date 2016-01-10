@@ -18,18 +18,23 @@ class ViewController: UIViewController {
     @IBOutlet weak var amountsView: UIView!
     @IBOutlet weak var percentView: UIView!
     
-    @IBAction func percentButton(sender: AnyObject) {
-        
-        view.endEditing(true)
-        
-        UIView.animateWithDuration(0.3, animations: {
-            self.percentView.frame = CGRectMake(0, 0, self.percentView.frame.size.height, self.percentView.frame.size.height)
-        })
-    }
-    
+    // Reset Tip Labels
     func initTipLabels() {
         tipLabel.text = "$0.00"
         totalLabel.text = "$0.00"
+    }
+    
+    
+    
+    // Show Percent Controls
+    @IBAction func percentButton(sender: AnyObject) {
+        // Hide Keyboard
+        view.endEditing(true)
+        
+        // Animate Percent Controls In
+        UIView.animateWithDuration(0.3, animations: {
+            self.percentView.frame = CGRectMake(0, 0, self.percentView.frame.size.height, self.percentView.frame.size.height)
+        })
     }
     
     override func viewDidLoad() {
@@ -40,9 +45,8 @@ class ViewController: UIViewController {
         let billFieldHeight = billField.frame.size.height
         let billFieldWidth = billField.frame.size.width
         
+        // Center Bill Field
         billField.frame = CGRectMake(xBillFieldPos, 230, billFieldWidth, billFieldHeight)
-        
-        initTipLabels()
         
         // Autofocus Keyboard on Load
         self.billField.becomeFirstResponder()
@@ -50,7 +54,11 @@ class ViewController: UIViewController {
         // Hide amounts view
         self.amountsView.alpha = 0
         
+        // Set Tip Control Styles
         tipControl.frame = CGRectMake(45, 300, 325, 100)
+        
+        // Reset Tip Labels
+        initTipLabels()
     }
 
     override func didReceiveMemoryWarning() {
@@ -60,10 +68,7 @@ class ViewController: UIViewController {
     
     // Changing Status Bar Color to White
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        
-        //LightContent
         return UIStatusBarStyle.LightContent
-        
     }
 
     // Hide Keyboard When Clicking Outside of Form
@@ -71,9 +76,9 @@ class ViewController: UIViewController {
         view.endEditing(true)
     }
     
-    
     // Calculate Tip
     @IBAction func onEditingChanged(sender: AnyObject) {
+        // Get Width and Height of Main screen
         let bounds = UIScreen.mainScreen().bounds
         let boundsHeight = bounds.size.height
         
@@ -86,14 +91,23 @@ class ViewController: UIViewController {
         var tipPercentages = [0.18,0.2,0.22]
         let tipPercentage = tipPercentages[tipControl.selectedSegmentIndex]
         
+        // Update Percentage Label to Match Segment Controls
         percentLabel.text = tipControl.titleForSegmentAtIndex(tipControl.selectedSegmentIndex)
         
-        
-        // Check if bill total field is not empty
+        // Check Bill Field Has Content
         if billField.text != "" {
+            
+            let billAmount = Double(billField.text!)
+            let tip = billAmount! * tipPercentage
+            let total = billAmount! + tip
+            
+            tipLabel.text = String(format: "$%.2f", tip)
+            totalLabel.text = String(format: "$%.2f", total)
+            
+            // Show Keyboard
             self.billField.becomeFirstResponder()
             
-            // Animate Tip Total Fields
+            // Animate Tip Total Fields and Bill Fields
             UIView.animateWithDuration(0.3, animations: {
                 self.amountsView.alpha = 1
                 
@@ -102,22 +116,19 @@ class ViewController: UIViewController {
                 self.percentView.frame = CGRectMake(0, boundsHeight, self.percentView.frame.size.height, self.percentView.frame.size.height)
             })
             
-            
-            let billAmount = Double(billField.text!)
-            let tip = billAmount! * tipPercentage
-            let total = billAmount! + tip
-            
-            tipLabel.text = String(format: "$%.2f", tip)
-            totalLabel.text = String(format: "$%.2f", total)
         } else {
             
+            // Reset Tip Labels
+            initTipLabels()
+            
+            // Hide Labels
             UIView.animateWithDuration(0.4, animations: {
                 self.amountsView.alpha = 0
                 
                 self.billField.frame = CGRectMake(xBillFieldPos, CGFloat(212), billFieldWidth, billFieldHeight)
             })
             
-            initTipLabels()
+            
         }
     }
     
